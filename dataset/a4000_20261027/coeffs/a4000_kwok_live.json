@@ -1,0 +1,82 @@
+{
+  "components": {
+    "dram": {
+      "intercept": 8.944176271984995,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": 0.39796846862166,
+        "cpu_utilization": 0.9014538395012434,
+        "gpu_util_ewma": 0.18995770790997746,
+        "gpu_utilization": -0.008710797087686406,
+        "mem_bandwidth_proxy": 3.7523272064028195
+      }
+    },
+    "gpu": {
+      "intercept": 71.65818748039962,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": -1.5991808107222951,
+        "cpu_utilization": -4.757857422987059,
+        "gpu_util_ewma": 17.596316850706224,
+        "gpu_utilization": 52.62773413521097,
+        "mem_bandwidth_proxy": -2.238208692140548
+      }
+    },
+    "package": {
+      "intercept": 90.84964498783876,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": 3.525401044644372,
+        "cpu_utilization": 42.19455252345451,
+        "gpu_util_ewma": 1.7860020044544405,
+        "gpu_utilization": -2.440094234123523,
+        "mem_bandwidth_proxy": 4.093443021119225
+      }
+    }
+  },
+  "covered_components": [
+    "dram",
+    "gpu",
+    "package"
+  ],
+  "platform_id": "a4000",
+  "provenance": {
+    "calibration_trace_sha256": "18e18070719564beb82b095ec3d670f2a26757b438036261db74cc3dbe9f03c2",
+    "created_at": "2026-10-27T02:50:41+00:00",
+    "git_sha": "fa5a941a1b0b28973892aff9406728f7fc64ea14",
+    "host": {
+      "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "gpu": "unavailable",
+      "kernel": "Windows 10",
+      "nvml_driver": "unavailable"
+    },
+    "platform_config_sha256": "unknown",
+    "schema_version": "1",
+    "solver": "ridge",
+    "transform_kind": "standardize"
+  },
+  "transform": {
+    "features": [
+      "cpu_utilization",
+      "cpu_frequency_mhz",
+      "mem_bandwidth_proxy",
+      "gpu_utilization",
+      "gpu_util_ewma"
+    ],
+    "gpu_util_ewma_tau_s": 5.0,
+    "means": {
+      "cpu_frequency_mhz": 3000.9775252013483,
+      "cpu_utilization": 0.25310210193514304,
+      "gpu_util_ewma": 0.16648139295293574,
+      "gpu_utilization": 0.15760750755069758,
+      "mem_bandwidth_proxy": 9667.06989932403
+    },
+    "stds": {
+      "cpu_frequency_mhz": 108.16378797612789,
+      "cpu_utilization": 0.3106368446757278,
+      "gpu_util_ewma": 0.26621663510513716,
+      "gpu_utilization": 0.29888464842333645,
+      "mem_bandwidth_proxy": 25616.171934903054
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Toward Hardware-Grounded Energy Estimation for KWOK: Calibrating Simulated Kubernetes Nodes Against RAPL and NVML (reproduction package)",
+  "upload_type": "software",
+  "version": "0.1.0",
+  "license": "MIT",
+  "creators": [
+    {"name": "da Silva, Vitor L.", "orcid": "0000-0002-3296-2752", "affiliation": "SEMBAC, Universitat de Lleida"},
+    {"name": "Medina Jara, Matias Nicolas", "orcid": "0009-0000-2858-4317", "affiliation": "SEMBAC, Universitat de Lleida"},
+    {"name": "Tomàs, Rosana", "orcid": "0000-0002-1995-3974", "affiliation": "SEMBAC, Universitat de Lleida"},
+    {"name": "Oliva, Joaquim", "orcid": "0009-0006-2645-6008", "affiliation": "SEMBAC, Universitat de Lleida"},
+    {"name": "Cores, Fernando", "orcid": "0000-0003-2910-6709", "affiliation": "SEMBAC, Universitat de Lleida"},
+    {"name": "Lérida, Josep Lluís", "orcid": "0000-0002-9352-9338", "affiliation": "SEMBAC, Universitat de Lleida"}
+  ],
+  "description": "<p>Reproduction package of the paper <em>Toward Hardware-Grounded Energy Estimation for KWOK: Calibrating Simulated Kubernetes Nodes Against RAPL and NVML</em>. It contains the energy layer for KWOK (a per-component CPU package, DRAM and GPU model calibrated against Intel RAPL and NVIDIA NVML, a Prometheus exporter and trace replay), the measurement harness, the live KWOK experiment (up to 10,000 nodes), the dataset of both capture sessions (raw per-interval traces of 20 workloads x 5 repetitions on two multi-GPU servers, session timelines, fitted coefficients and manifests with the sha256 of every file) and a Docker environment that regenerates every number and table of the paper from the dataset and checks them against the published ones. Code under MIT, data under CC BY 4.0.</p><p>This work has been granted by the Ministerio de Ciencia, Innovación y Universidades (MICIU) AEI/10.13039/501100011033 under contract PID2023-146193OB-I00.</p>",
+  "keywords": ["KWOK", "Kubernetes", "energy modelling", "RAPL", "NVML", "simulation", "reproducibility", "reproduction package"],
+  "related_identifiers": [
+    {"relation": "isSupplementTo", "identifier": "https://github.com/GCDA-UDL/repro-kwok-energy", "resource_type": "software"}
+  ]
+}

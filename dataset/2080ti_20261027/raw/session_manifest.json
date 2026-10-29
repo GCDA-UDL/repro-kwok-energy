@@ -1,0 +1,1189 @@
+{
+  "protocol": "capture_v2",
+  "schema_version": "1.1",
+  "platform_id": "2080ti",
+  "args": {
+    "platform": "2080ti",
+    "outdir": "data/e2e_v2",
+    "reps": 5,
+    "duration": 120.0,
+    "ramp": 2.0,
+    "interval": 1.0,
+    "tau": 20.0,
+    "seed": 20261026,
+    "only": "",
+    "no_real": false,
+    "settle": 60.0,
+    "membw": "continuous"
+  },
+  "workloads": [
+    {
+      "name": "idle",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "cpu_12",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "cpu_25",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "cpu_50",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "cpu_75",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "cpu_100",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "mem_lo",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "mem_hi",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "gpu_25",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "gpu_50",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "gpu_100",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "gpu_all_100",
+      "role": "cal",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "mixed_cpu_gpu",
+      "role": "heldout",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "bursty_cpu",
+      "role": "heldout",
+      "kind": "synthetic",
+      "notes": "all cores, 5 s on / 5 s off"
+    },
+    {
+      "name": "mem_gpu",
+      "role": "heldout",
+      "kind": "synthetic",
+      "notes": ""
+    },
+    {
+      "name": "train_resnet50",
+      "role": "heldout",
+      "kind": "real",
+      "notes": "PyTorch ResNet-50 training (torch only), synthetic ImageNet-size data with CPU augmentation, AMP, 8 loader workers"
+    },
+    {
+      "name": "llm_serve",
+      "role": "heldout",
+      "kind": "real",
+      "notes": "Ollama qwen2.5:3b on GPU 0, Poisson requests 0.5/s, 128 tokens"
+    },
+    {
+      "name": "pgbench",
+      "role": "heldout",
+      "kind": "real",
+      "notes": "PostgreSQL 16, pgbench TPC-B-like, scale 100, 32 clients, 8 threads"
+    },
+    {
+      "name": "build_cpython",
+      "role": "heldout",
+      "kind": "real",
+      "notes": "CPython 3.12 parallel build loop (make -j nproc; make clean)"
+    },
+    {
+      "name": "colocated_train_pgbench",
+      "role": "heldout",
+      "kind": "real",
+      "notes": "train_resnet50 and pgbench on the same node"
+    }
+  ],
+  "host": {
+    "hostname": "spoofing02-gcd.udl.cat",
+    "kernel": "5.4.0-216-generic",
+    "cpu_model": "Intel(R) Xeon(R) W-3245 CPU @ 3.20GHz",
+    "ncpu": 32,
+    "mem": "              total        used        free      shared  buff/cache   available\nMem:            187           2           8           0         176         183\n",
+    "gpus": "0, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n1, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n2, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n3, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n",
+    "rapl_source": "powercap",
+    "rapl_sockets": 1,
+    "rapl_dram_zones": 1,
+    "rapl_dram": true,
+    "gpu_count": 4,
+    "gpu_energy_method": "nvml_energy_counter",
+    "platform_meter": {
+      "available": false,
+      "model": null,
+      "accuracy": null,
+      "average_interval_ms": null
+    },
+    "mem_proxy": "perf_imc_continuous",
+    "ollama_image": "ollama/ollama:0.6.0",
+    "ollama_image_id": "sha256:b9162cd6df73694f32c5e7c7250bcdd8b7dc6f77359df5a9693d7c2ca074cf2f",
+    "ollama_version": "Warning: client version is 0.6.0",
+    "python": "3.13.9",
+    "torch": "2.5.1+cu121",
+    "git_sha": "fa5a941a1b0b28973892aff9406728f7fc64ea14",
+    "git_dirty": false
+  },
+  "background_start": {
+    "time_utc": "2026-10-26T23:14:11Z",
+    "loadavg": "4.33 4.77 3.78 1/801 3654717",
+    "top_processes": "USER         PID %CPU %MEM     ELAPSED COMMAND\nbench    3654448 27.8  0.0       00:06 python\nbench    3654475 17.0  0.0       00:05 perf\nroot     3654465  1.6  0.0       00:06 nv_queue\nroot     3654324  0.6  0.0       00:09 nv_queue\nother-1  3218962  0.5  0.0 60-11:08:58 codex\nroot     3654349  0.5  0.0       00:08 systemd-udevd\nroot     3654334  0.3  0.0       00:08 sshd\nother-1   270181  0.2  0.0 66-12:25:31 watch\nother-1  3245168  0.2  0.0 60-10:14:44 watch\nroot     3654354  0.2  0.0       00:08 systemd-udevd\nroot     3654471  0.2  0.0       00:05 nv_queue\nother-2     1240  0.1  0.0 73-12:08:08 nvidia-persiste\nroot        1280  0.1  0.0 73-12:08:08 containerd\nroot     3630004  0.1  0.0       13:24 kworker/u64:3-events_unbound\n",
+    "docker_ps": "",
+    "gpu_apps": "",
+    "logged_in": "other-1 pts/0        2026-08-26 11:20 (tmux(260794).%5)\nother-1 pts/1        2026-08-21 12:11 (tmux(260794).%0)\nother-1 pts/2        2026-08-21 12:11 (tmux(260794).%1)\nbench    pts/3        2026-10-26 23:21\nother-1 pts/4        2026-08-26 16:33 (tmux(260794).%43)\nother-1 pts/5        2026-08-27 14:59 (tmux(260794).%44)\nother-1 pts/11       2026-08-26 11:09 (tmux(260794).%4)\nother-1 pts/6        2026-08-27 15:07 (tmux(260794).%45)\nbench    pts/7        2026-10-26 23:37\nbench    pts/8        2026-10-27 00:14 (tmux(3654445).%0)\n"
+  },
+  "timings": [
+    {
+      "workload": "llm_serve",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "real",
+      "setup_start": 62.122329593636096,
+      "measure_start": 66.65400179848075,
+      "measure_end": 186.65413793642074,
+      "teardown_end": 187.10300977248698
+    },
+    {
+      "workload": "colocated_train_pgbench",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "real",
+      "setup_start": 187.10316012054682,
+      "measure_start": 199.8925645891577,
+      "measure_end": 319.89264591317624,
+      "teardown_end": 322.0955503853038
+    },
+    {
+      "workload": "gpu_all_100",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 322.09571563173085,
+      "measure_start": 325.7075839461759,
+      "measure_end": 445.70764742419124,
+      "teardown_end": 445.834982807748
+    },
+    {
+      "workload": "cpu_25",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 445.8353317640722,
+      "measure_start": 447.997252128087,
+      "measure_end": 567.9973768526688,
+      "teardown_end": 568.0003473712131
+    },
+    {
+      "workload": "pgbench",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "real",
+      "setup_start": 568.0016605602577,
+      "measure_start": 573.4411981655285,
+      "measure_end": 693.4412845456973,
+      "teardown_end": 696.3100137552246
+    },
+    {
+      "workload": "build_cpython",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "real",
+      "setup_start": 696.3101308867335,
+      "measure_start": 698.311199198477,
+      "measure_end": 818.3112815031782,
+      "teardown_end": 818.7140797069296
+    },
+    {
+      "workload": "bursty_cpu",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 818.7142039099708,
+      "measure_start": 821.0021559856832,
+      "measure_end": 941.0022213021293,
+      "teardown_end": 941.0143991438672
+    },
+    {
+      "workload": "mem_gpu",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 941.016385811381,
+      "measure_start": 944.878535317257,
+      "measure_end": 1064.8786864224821,
+      "teardown_end": 1064.9572676308453
+    },
+    {
+      "workload": "gpu_100",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1064.95895817969,
+      "measure_start": 1068.1925236061215,
+      "measure_end": 1188.1926342062652,
+      "teardown_end": 1188.2702224906534
+    },
+    {
+      "workload": "cpu_100",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1188.270573423244,
+      "measure_start": 1190.5451885052025,
+      "measure_end": 1310.5452520577237,
+      "teardown_end": 1310.5589891904965
+    },
+    {
+      "workload": "gpu_50",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1310.5609291736037,
+      "measure_start": 1313.7935676630586,
+      "measure_end": 1433.793691283092,
+      "teardown_end": 1433.8629756467417
+    },
+    {
+      "workload": "mem_lo",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1433.8633136218414,
+      "measure_start": 1436.1764597613364,
+      "measure_end": 1556.1766018206254,
+      "teardown_end": 1556.1835451293737
+    },
+    {
+      "workload": "idle",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1556.1840287791565,
+      "measure_start": 1558.1842147465795,
+      "measure_end": 1678.1843698127195,
+      "teardown_end": 1678.1843879921362
+    },
+    {
+      "workload": "cpu_12",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1678.1844538087025,
+      "measure_start": 1680.3465706016868,
+      "measure_end": 1800.346692604944,
+      "teardown_end": 1800.348787277937
+    },
+    {
+      "workload": "gpu_25",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1800.3495091032237,
+      "measure_start": 1803.5624648109078,
+      "measure_end": 1923.562607592903,
+      "teardown_end": 1923.638011588715
+    },
+    {
+      "workload": "mixed_cpu_gpu",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 1923.6383530572057,
+      "measure_start": 1927.6297267768532,
+      "measure_end": 2047.6297868918628,
+      "teardown_end": 2047.6996722742915
+    },
+    {
+      "workload": "train_resnet50",
+      "role": "heldout",
+      "rep": 1,
+      "kind": "real",
+      "setup_start": 2047.7014867728576,
+      "measure_start": 2055.836614476517,
+      "measure_end": 2175.836745931767,
+      "teardown_end": 2176.7029175413772
+    },
+    {
+      "workload": "cpu_75",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 2176.7030766755342,
+      "measure_start": 2178.946602416225,
+      "measure_end": 2298.9466699091718,
+      "teardown_end": 2298.9560257364064
+    },
+    {
+      "workload": "mem_hi",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 2298.957544037141,
+      "measure_start": 2301.3460380770266,
+      "measure_end": 2421.346194203943,
+      "teardown_end": 2421.3578361170366
+    },
+    {
+      "workload": "cpu_50",
+      "role": "cal",
+      "rep": 1,
+      "kind": "synthetic",
+      "setup_start": 2421.3590058991686,
+      "measure_start": 2423.5370645364746,
+      "measure_end": 2543.5371271176264,
+      "teardown_end": 2543.542313069105
+    },
+    {
+      "workload": "idle",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 2543.5433945544064,
+      "measure_start": 2545.543572589755,
+      "measure_end": 2665.54370420333,
+      "teardown_end": 2665.543722938746
+    },
+    {
+      "workload": "llm_serve",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "real",
+      "setup_start": 2665.5437885811552,
+      "measure_start": 2670.641779653728,
+      "measure_end": 2790.6419146293774,
+      "teardown_end": 2791.0759740406647
+    },
+    {
+      "workload": "build_cpython",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "real",
+      "setup_start": 2791.076102171093,
+      "measure_start": 2793.077286945656,
+      "measure_end": 2913.0773748643696,
+      "teardown_end": 2913.427382497117
+    },
+    {
+      "workload": "cpu_100",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 2913.427509777248,
+      "measure_start": 2915.6996165933087,
+      "measure_end": 3035.699682950042,
+      "teardown_end": 3035.7136119911447
+    },
+    {
+      "workload": "mixed_cpu_gpu",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3035.7157182842493,
+      "measure_start": 3039.4976432584226,
+      "measure_end": 3159.4977050842717,
+      "teardown_end": 3159.5632083937526
+    },
+    {
+      "workload": "gpu_25",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3159.5653610732406,
+      "measure_start": 3162.776585534215,
+      "measure_end": 3282.7767336992547,
+      "teardown_end": 3282.8534836135805
+    },
+    {
+      "workload": "mem_gpu",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3282.8537264959887,
+      "measure_start": 3286.6743604894727,
+      "measure_end": 3406.674506851472,
+      "teardown_end": 3406.744260695763
+    },
+    {
+      "workload": "bursty_cpu",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3406.745748224668,
+      "measure_start": 3409.004547475837,
+      "measure_end": 3529.004712978378,
+      "teardown_end": 3529.0282125445083
+    },
+    {
+      "workload": "cpu_75",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3529.030710224062,
+      "measure_start": 3531.2778927525505,
+      "measure_end": 3651.2779600946233,
+      "teardown_end": 3651.287200620398
+    },
+    {
+      "workload": "gpu_100",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3651.2887179655954,
+      "measure_start": 3654.528122681193,
+      "measure_end": 3774.528246459551,
+      "teardown_end": 3774.596593976021
+    },
+    {
+      "workload": "pgbench",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "real",
+      "setup_start": 3774.5969184422866,
+      "measure_start": 3780.004085649736,
+      "measure_end": 3900.0041638379917,
+      "teardown_end": 3901.4414252955467
+    },
+    {
+      "workload": "cpu_25",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 3901.4415832227096,
+      "measure_start": 3903.6554662426934,
+      "measure_end": 4023.655540934764,
+      "teardown_end": 4023.6586274253204
+    },
+    {
+      "workload": "mem_hi",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 4023.660026047379,
+      "measure_start": 4026.1252440847456,
+      "measure_end": 4146.125410269946,
+      "teardown_end": 4146.136043261737
+    },
+    {
+      "workload": "cpu_50",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 4146.136590600014,
+      "measure_start": 4148.344419501722,
+      "measure_end": 4268.344480953179,
+      "teardown_end": 4268.3495133752
+    },
+    {
+      "workload": "gpu_50",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 4268.350557669066,
+      "measure_start": 4271.573770003393,
+      "measure_end": 4391.573892543092,
+      "teardown_end": 4391.648761956021
+    },
+    {
+      "workload": "train_resnet50",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "real",
+      "setup_start": 4391.648942179047,
+      "measure_start": 4399.853279000148,
+      "measure_end": 4519.853400005028,
+      "teardown_end": 4520.669396901503
+    },
+    {
+      "workload": "colocated_train_pgbench",
+      "role": "heldout",
+      "rep": 2,
+      "kind": "real",
+      "setup_start": 4520.669552698731,
+      "measure_start": 4533.397879092954,
+      "measure_end": 4653.39798998367,
+      "teardown_end": 4657.129595195875
+    },
+    {
+      "workload": "mem_lo",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 4657.129749004729,
+      "measure_start": 4659.498908730224,
+      "measure_end": 4779.49899222143,
+      "teardown_end": 4779.507002842613
+    },
+    {
+      "workload": "cpu_12",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 4779.507473195903,
+      "measure_start": 4781.658479181118,
+      "measure_end": 4901.658620212227,
+      "teardown_end": 4901.660802115686
+    },
+    {
+      "workload": "gpu_all_100",
+      "role": "cal",
+      "rep": 2,
+      "kind": "synthetic",
+      "setup_start": 4901.661563325673,
+      "measure_start": 4905.193090301007,
+      "measure_end": 5025.1932123424485,
+      "teardown_end": 5025.33486539498
+    },
+    {
+      "workload": "cpu_50",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 5025.335645291023,
+      "measure_start": 5027.511140662245,
+      "measure_end": 5147.511201612651,
+      "teardown_end": 5147.516307686456
+    },
+    {
+      "workload": "gpu_25",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 5147.517353625968,
+      "measure_start": 5150.744800040498,
+      "measure_end": 5270.744957239367,
+      "teardown_end": 5270.8254841296
+    },
+    {
+      "workload": "colocated_train_pgbench",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "real",
+      "setup_start": 5270.825663640164,
+      "measure_start": 5283.5298512214795,
+      "measure_end": 5403.529990726151,
+      "teardown_end": 5407.380088129081
+    },
+    {
+      "workload": "train_resnet50",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "real",
+      "setup_start": 5407.380250393413,
+      "measure_start": 5415.702333516441,
+      "measure_end": 5535.702461754903,
+      "teardown_end": 5536.518535729498
+    },
+    {
+      "workload": "mem_lo",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 5536.518691956997,
+      "measure_start": 5538.810659171082,
+      "measure_end": 5658.810791380703,
+      "teardown_end": 5658.816893650219
+    },
+    {
+      "workload": "idle",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 5658.817366154864,
+      "measure_start": 5660.817532095127,
+      "measure_end": 5780.81769983843,
+      "teardown_end": 5780.8177280453965
+    },
+    {
+      "workload": "cpu_12",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 5780.817811391316,
+      "measure_start": 5782.993065958843,
+      "measure_end": 5902.993196083233,
+      "teardown_end": 5902.9951553484425
+    },
+    {
+      "workload": "mixed_cpu_gpu",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 5902.995904241689,
+      "measure_start": 5906.717892292887,
+      "measure_end": 6026.717959371395,
+      "teardown_end": 6026.781069356948
+    },
+    {
+      "workload": "build_cpython",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "real",
+      "setup_start": 6026.783581308089,
+      "measure_start": 6028.7845055591315,
+      "measure_end": 6148.784589845687,
+      "teardown_end": 6149.127723529004
+    },
+    {
+      "workload": "mem_gpu",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 6149.127853002399,
+      "measure_start": 6153.043057228439,
+      "measure_end": 6273.043162508868,
+      "teardown_end": 6273.106285084039
+    },
+    {
+      "workload": "mem_hi",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 6273.107835597359,
+      "measure_start": 6275.604965784587,
+      "measure_end": 6395.605121177621,
+      "teardown_end": 6395.619718122296
+    },
+    {
+      "workload": "pgbench",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "real",
+      "setup_start": 6395.621059549972,
+      "measure_start": 6401.01369332429,
+      "measure_end": 6521.013771133497,
+      "teardown_end": 6522.811445002444
+    },
+    {
+      "workload": "gpu_50",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 6522.811568165198,
+      "measure_start": 6526.186705233529,
+      "measure_end": 6646.1868376219645,
+      "teardown_end": 6646.264470667578
+    },
+    {
+      "workload": "llm_serve",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "real",
+      "setup_start": 6646.264825167134,
+      "measure_start": 6651.708770820871,
+      "measure_end": 6771.708900501952,
+      "teardown_end": 6772.161834506318
+    },
+    {
+      "workload": "cpu_100",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 6772.1619669301435,
+      "measure_start": 6774.428615433164,
+      "measure_end": 6894.428682987578,
+      "teardown_end": 6894.442735912278
+    },
+    {
+      "workload": "bursty_cpu",
+      "role": "heldout",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 6894.444659649394,
+      "measure_start": 6896.672612433322,
+      "measure_end": 7016.67276781518,
+      "teardown_end": 7016.695667167194
+    },
+    {
+      "workload": "cpu_75",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 7016.6977794012055,
+      "measure_start": 7018.912242706865,
+      "measure_end": 7138.91230795905,
+      "teardown_end": 7138.921416979283
+    },
+    {
+      "workload": "gpu_all_100",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 7138.923051190563,
+      "measure_start": 7142.370816998184,
+      "measure_end": 7262.370907530189,
+      "teardown_end": 7262.5007233461365
+    },
+    {
+      "workload": "gpu_100",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 7262.501325520687,
+      "measure_start": 7265.718832697719,
+      "measure_end": 7385.718963716179,
+      "teardown_end": 7385.787198388018
+    },
+    {
+      "workload": "cpu_25",
+      "role": "cal",
+      "rep": 3,
+      "kind": "synthetic",
+      "setup_start": 7385.787527577952,
+      "measure_start": 7387.951365165412,
+      "measure_end": 7507.951444621198,
+      "teardown_end": 7507.954386551864
+    },
+    {
+      "workload": "gpu_100",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 7507.955748517998,
+      "measure_start": 7511.190374177881,
+      "measure_end": 7631.190487991087,
+      "teardown_end": 7631.2507158163935
+    },
+    {
+      "workload": "cpu_25",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 7631.251045489684,
+      "measure_start": 7633.422632860951,
+      "measure_end": 7753.422749954276,
+      "teardown_end": 7753.425659986213
+    },
+    {
+      "workload": "mem_gpu",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 7753.427019686438,
+      "measure_start": 7757.293524513952,
+      "measure_end": 7877.293681790121,
+      "teardown_end": 7877.36843333859
+    },
+    {
+      "workload": "cpu_100",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 7877.369957620278,
+      "measure_start": 7879.635730004869,
+      "measure_end": 7999.63579565566,
+      "teardown_end": 7999.6495397649705
+    },
+    {
+      "workload": "mixed_cpu_gpu",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 7999.651676020585,
+      "measure_start": 8003.402664991096,
+      "measure_end": 8123.402729814872,
+      "teardown_end": 8123.466937622055
+    },
+    {
+      "workload": "pgbench",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "real",
+      "setup_start": 8123.469400122762,
+      "measure_start": 8128.863251820207,
+      "measure_end": 8248.863341157325,
+      "teardown_end": 8249.91215086449
+    },
+    {
+      "workload": "gpu_50",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 8249.912280056626,
+      "measure_start": 8253.315541697666,
+      "measure_end": 8373.315665575676,
+      "teardown_end": 8373.394913577475
+    },
+    {
+      "workload": "cpu_50",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 8373.395313668065,
+      "measure_start": 8375.58062439505,
+      "measure_end": 8495.580689627677,
+      "teardown_end": 8495.585882638581
+    },
+    {
+      "workload": "idle",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 8495.587062493898,
+      "measure_start": 8497.5871564392,
+      "measure_end": 8617.587312387303,
+      "teardown_end": 8617.587331732735
+    },
+    {
+      "workload": "gpu_25",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 8617.587399126962,
+      "measure_start": 8620.90032198932,
+      "measure_end": 8740.900477535091,
+      "teardown_end": 8740.971286105923
+    },
+    {
+      "workload": "cpu_75",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 8740.971616433933,
+      "measure_start": 8743.218945033848,
+      "measure_end": 8863.219011751004,
+      "teardown_end": 8863.22818014305
+    },
+    {
+      "workload": "build_cpython",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "real",
+      "setup_start": 8863.22990392521,
+      "measure_start": 8865.230615784414,
+      "measure_end": 8985.230693338439,
+      "teardown_end": 8985.563561864197
+    },
+    {
+      "workload": "llm_serve",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "real",
+      "setup_start": 8985.563691345975,
+      "measure_start": 8990.774047015235,
+      "measure_end": 9110.774168548174,
+      "teardown_end": 9111.247955591418
+    },
+    {
+      "workload": "mem_lo",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 9111.248048014939,
+      "measure_start": 9113.605233993381,
+      "measure_end": 9233.605367780663,
+      "teardown_end": 9233.61020813696
+    },
+    {
+      "workload": "gpu_all_100",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 9233.610746014863,
+      "measure_start": 9237.143951599486,
+      "measure_end": 9357.144071651623,
+      "teardown_end": 9357.274721444584
+    },
+    {
+      "workload": "bursty_cpu",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 9357.275501711294,
+      "measure_start": 9359.520123307593,
+      "measure_end": 9479.520268885419,
+      "teardown_end": 9479.54376352299
+    },
+    {
+      "workload": "cpu_12",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 9479.546202061698,
+      "measure_start": 9481.705758049153,
+      "measure_end": 9601.705887174234,
+      "teardown_end": 9601.708094696514
+    },
+    {
+      "workload": "colocated_train_pgbench",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "real",
+      "setup_start": 9601.70902867522,
+      "measure_start": 9614.341925282963,
+      "measure_end": 9734.342001837678,
+      "teardown_end": 9737.628788121045
+    },
+    {
+      "workload": "train_resnet50",
+      "role": "heldout",
+      "rep": 4,
+      "kind": "real",
+      "setup_start": 9737.628944823518,
+      "measure_start": 9745.901053483598,
+      "measure_end": 9865.901126619428,
+      "teardown_end": 9866.717143094167
+    },
+    {
+      "workload": "mem_hi",
+      "role": "cal",
+      "rep": 4,
+      "kind": "synthetic",
+      "setup_start": 9866.717298833653,
+      "measure_start": 9869.153394908644,
+      "measure_end": 9989.153557280079,
+      "teardown_end": 9989.164486097172
+    },
+    {
+      "workload": "train_resnet50",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "real",
+      "setup_start": 9989.16502859816,
+      "measure_start": 9997.096506490372,
+      "measure_end": 10117.096641426906,
+      "teardown_end": 10117.91263092123
+    },
+    {
+      "workload": "gpu_100",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10117.91278449446,
+      "measure_start": 10121.122608811595,
+      "measure_end": 10241.122740208171,
+      "teardown_end": 10241.194976224564
+    },
+    {
+      "workload": "cpu_100",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10241.195314193144,
+      "measure_start": 10243.447566073388,
+      "measure_end": 10363.447629461996,
+      "teardown_end": 10363.46123286616
+    },
+    {
+      "workload": "bursty_cpu",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10363.463215435855,
+      "measure_start": 10365.694247617386,
+      "measure_end": 10485.694379958324,
+      "teardown_end": 10485.716600111686
+    },
+    {
+      "workload": "build_cpython",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "real",
+      "setup_start": 10485.71863081213,
+      "measure_start": 10487.719301240519,
+      "measure_end": 10607.719382874668,
+      "teardown_end": 10608.071574493311
+    },
+    {
+      "workload": "idle",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10608.071701054461,
+      "measure_start": 10610.071869727224,
+      "measure_end": 10730.072001814842,
+      "teardown_end": 10730.072026965208
+    },
+    {
+      "workload": "cpu_25",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10730.072105518542,
+      "measure_start": 10732.243594218045,
+      "measure_end": 10852.243717379868,
+      "teardown_end": 10852.24700725358
+    },
+    {
+      "workload": "mem_gpu",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10852.248361159116,
+      "measure_start": 10856.159547319636,
+      "measure_end": 10976.159638100304,
+      "teardown_end": 10976.23089124076
+    },
+    {
+      "workload": "mem_lo",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 10976.232183573768,
+      "measure_start": 10978.49258725904,
+      "measure_end": 11098.49272565823,
+      "teardown_end": 11098.50004329905
+    },
+    {
+      "workload": "cpu_12",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 11098.500527521595,
+      "measure_start": 11100.657178723253,
+      "measure_end": 11220.657305540517,
+      "teardown_end": 11220.659424558282
+    },
+    {
+      "workload": "mem_hi",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 11220.660382236354,
+      "measure_start": 11223.157479771413,
+      "measure_end": 11343.157636086456,
+      "teardown_end": 11343.16921631433
+    },
+    {
+      "workload": "mixed_cpu_gpu",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 11343.169779795222,
+      "measure_start": 11347.168303381652,
+      "measure_end": 11467.168367904611,
+      "teardown_end": 11467.228388044983
+    },
+    {
+      "workload": "cpu_75",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 11467.230987343937,
+      "measure_start": 11469.450298208743,
+      "measure_end": 11589.450365078636,
+      "teardown_end": 11589.45963243395
+    },
+    {
+      "workload": "llm_serve",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "real",
+      "setup_start": 11589.461153088138,
+      "measure_start": 11594.396224881522,
+      "measure_end": 11714.396350147203,
+      "teardown_end": 11714.846380839124
+    },
+    {
+      "workload": "gpu_50",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 11714.846501150168,
+      "measure_start": 11718.157784326002,
+      "measure_end": 11838.15793671459,
+      "teardown_end": 11838.24814557191
+    },
+    {
+      "workload": "pgbench",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "real",
+      "setup_start": 11838.2484778082,
+      "measure_start": 11843.692765371874,
+      "measure_end": 11963.692899567075,
+      "teardown_end": 11965.367026795633
+    },
+    {
+      "workload": "gpu_all_100",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 11965.367146710865,
+      "measure_start": 11968.966383800842,
+      "measure_end": 12088.966506239027,
+      "teardown_end": 12089.109283761121
+    },
+    {
+      "workload": "cpu_50",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 12089.110049996525,
+      "measure_start": 12091.342512142844,
+      "measure_end": 12211.342575495131,
+      "teardown_end": 12211.347785914317
+    },
+    {
+      "workload": "colocated_train_pgbench",
+      "role": "heldout",
+      "rep": 5,
+      "kind": "real",
+      "setup_start": 12211.34882055968,
+      "measure_start": 12223.876246895641,
+      "measure_end": 12343.876368581317,
+      "teardown_end": 12348.350736835971
+    },
+    {
+      "workload": "gpu_25",
+      "role": "cal",
+      "rep": 5,
+      "kind": "synthetic",
+      "setup_start": 12348.350882579572,
+      "measure_start": 12351.6849923525,
+      "measure_end": 12471.68512512371,
+      "teardown_end": 12471.758851780556
+    }
+  ],
+  "status": "ok",
+  "background_end": {
+    "time_utc": "2026-10-27T02:42:04Z",
+    "loadavg": "2.16 7.87 8.94 1/737 3877563",
+    "top_processes": "USER         PID %CPU %MEM     ELAPSED COMMAND\nbench    3654448  1.7  0.0    03:27:59 python\nother-1  3218962  0.5  0.0 60-14:36:51 codex\nother-1   270181  0.2  0.0 66-15:53:24 watch\nother-1  3245168  0.2  0.0 60-13:42:37 watch\nother-2     1240  0.1  0.0 73-15:36:01 nvidia-persiste\nroot        1280  0.1  0.0 73-15:36:01 containerd\nroot     3654322  0.1  0.0    03:28:02 irq/176-nvidia\nroot     3654324  0.1  0.0    03:28:02 nv_queue\nroot     3874778  0.1  0.0       03:47 kworker/u64:0-events_unbound\nroot           1  0.0  0.0 73-15:36:26 systemd\nroot           2  0.0  0.0 73-15:36:26 kthreadd\nroot           3  0.0  0.0 73-15:36:26 rcu_gp\nroot           4  0.0  0.0 73-15:36:26 rcu_par_gp\nroot           6  0.0  0.0 73-15:36:26 kworker/0:0H-kblockd\n",
+    "docker_ps": "",
+    "gpu_apps": "",
+    "logged_in": "other-1 pts/0        2026-08-26 11:20 (tmux(260794).%5)\nother-1 pts/1        2026-08-21 12:11 (tmux(260794).%0)\nother-1 pts/2        2026-08-21 12:11 (tmux(260794).%1)\nother-1 pts/4        2026-08-26 16:33 (tmux(260794).%43)\nother-1 pts/5        2026-08-27 14:59 (tmux(260794).%44)\nother-1 pts/11       2026-08-26 11:09 (tmux(260794).%4)\nother-1 pts/6        2026-08-27 15:07 (tmux(260794).%45)\nbench    pts/8        2026-10-27 00:14 (tmux(3654445).%0)\n"
+  },
+  "wall_s": 12472.549646139145
+}

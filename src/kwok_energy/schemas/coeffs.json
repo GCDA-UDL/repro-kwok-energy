@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "_ComponentCoeffsModel": {
+      "description": "One per-component linear sub-model (intercept + feature weights).",
+      "properties": {
+        "intercept": {
+          "title": "Intercept",
+          "type": "number"
+        },
+        "solver": {
+          "default": "ridge",
+          "title": "Solver",
+          "type": "string"
+        },
+        "weights": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Weights",
+          "type": "object"
+        }
+      },
+      "required": [
+        "intercept"
+      ],
+      "title": "_ComponentCoeffsModel",
+      "type": "object"
+    }
+  },
+  "description": "The fitted-coefficients JSON contract (Phase 4/9).\n\nDescribes the on-disk ``coeffs.json`` shape: ``platform_id``, the covered\ncomponent set, the standardization transform, per-component linear params,\nand the provenance block (R2). The runtime type is\n``kwok_energy.energy_model.Coeffs``; this model is the JSON-schema authority\nso the two never drift (decision D2/D4).",
+  "properties": {
+    "components": {
+      "additionalProperties": {
+        "$ref": "#/$defs/_ComponentCoeffsModel"
+      },
+      "title": "Components",
+      "type": "object"
+    },
+    "covered_components": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Covered Components",
+      "type": "array"
+    },
+    "platform_id": {
+      "title": "Platform Id",
+      "type": "string"
+    },
+    "provenance": {
+      "additionalProperties": true,
+      "title": "Provenance",
+      "type": "object"
+    },
+    "transform": {
+      "additionalProperties": true,
+      "title": "Transform",
+      "type": "object"
+    }
+  },
+  "required": [
+    "platform_id",
+    "covered_components",
+    "transform",
+    "components"
+  ],
+  "title": "CoeffsModel",
+  "type": "object"
+}

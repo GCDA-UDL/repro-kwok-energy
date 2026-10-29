@@ -1,0 +1,90 @@
+{
+  "description": "Component-A workload signals (no targets).",
+  "properties": {
+    "cpu_frequency_mhz": {
+      "minimum": 0,
+      "title": "Cpu Frequency Mhz",
+      "type": "number"
+    },
+    "cpu_utilization": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Cpu Utilization",
+      "type": "number"
+    },
+    "disk_read_bps": {
+      "minimum": 0,
+      "title": "Disk Read Bps",
+      "type": "number"
+    },
+    "disk_write_bps": {
+      "minimum": 0,
+      "title": "Disk Write Bps",
+      "type": "number"
+    },
+    "gpu_mem_utilization": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Gpu Mem Utilization",
+      "type": "number"
+    },
+    "gpu_util_ewma": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gpu Util Ewma"
+    },
+    "gpu_utilization": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Gpu Utilization",
+      "type": "number"
+    },
+    "mem_bandwidth_proxy": {
+      "minimum": 0,
+      "title": "Mem Bandwidth Proxy",
+      "type": "number"
+    },
+    "mem_proxy_method": {
+      "title": "Mem Proxy Method",
+      "type": "string"
+    },
+    "net_rx_bps": {
+      "minimum": 0,
+      "title": "Net Rx Bps",
+      "type": "number"
+    },
+    "net_tx_bps": {
+      "minimum": 0,
+      "title": "Net Tx Bps",
+      "type": "number"
+    },
+    "platform_id": {
+      "title": "Platform Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cpu_utilization",
+    "cpu_frequency_mhz",
+    "mem_bandwidth_proxy",
+    "mem_proxy_method",
+    "gpu_utilization",
+    "gpu_mem_utilization",
+    "disk_read_bps",
+    "disk_write_bps",
+    "net_rx_bps",
+    "net_tx_bps",
+    "platform_id"
+  ],
+  "title": "SignalModel",
+  "type": "object"
+}

@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "CpuSpec": {
+      "properties": {
+        "idle_watts_estimate": {
+          "minimum": 0,
+          "title": "Idle Watts Estimate",
+          "type": "number"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "sockets": {
+          "minimum": 1,
+          "title": "Sockets",
+          "type": "integer"
+        },
+        "tdp_watts": {
+          "minimum": 0,
+          "title": "Tdp Watts",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tdp_watts",
+        "idle_watts_estimate",
+        "sockets"
+      ],
+      "title": "CpuSpec",
+      "type": "object"
+    },
+    "GpuSpec": {
+      "properties": {
+        "idle_watts_estimate": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Idle Watts Estimate"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "present": {
+          "title": "Present",
+          "type": "boolean"
+        },
+        "tdp_watts": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tdp Watts"
+        }
+      },
+      "required": [
+        "present"
+      ],
+      "title": "GpuSpec",
+      "type": "object"
+    },
+    "RaplSpec": {
+      "properties": {
+        "has_dram": {
+          "title": "Has Dram",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "has_dram"
+      ],
+      "title": "RaplSpec",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "cpu": {
+      "$ref": "#/$defs/CpuSpec"
+    },
+    "gpu": {
+      "$ref": "#/$defs/GpuSpec"
+    },
+    "rapl": {
+      "$ref": "#/$defs/RaplSpec"
+    },
+    "sampling_interval_seconds": {
+      "exclusiveMinimum": 0,
+      "title": "Sampling Interval Seconds",
+      "type": "number"
+    }
+  },
+  "required": [
+    "cpu",
+    "gpu",
+    "rapl",
+    "sampling_interval_seconds"
+  ],
+  "title": "PlatformConfigModel",
+  "type": "object"
+}

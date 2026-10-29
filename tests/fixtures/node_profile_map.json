@@ -1,0 +1,16 @@
+{
+  "nodes": {
+    "n0": {
+      "trace_path": "traces/normal.csv",
+      "platform_id": "xeon-silver+rtx2080ti",
+      "mode": "loop",
+      "speed": 1.0
+    },
+    "n1": {
+      "trace_path": "traces/irregular_dt.csv",
+      "platform_id": "xeon-silver+rtx2080ti",
+      "mode": "once",
+      "speed": 2.0
+    }
+  }
+}

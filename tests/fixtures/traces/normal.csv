@@ -1,0 +1,4 @@
+schema_version,run_id,workload,node,timestamp,t_start_s,t_end_s,dt_s,platform_id,cpu_utilization,cpu_frequency_mhz,mem_bandwidth_proxy,mem_proxy_method,gpu_utilization,gpu_mem_utilization,disk_read_bps,disk_write_bps,net_rx_bps,net_tx_bps,rapl_pkg_joules,rapl_dram_joules,gpu_energy_joules,rapl_pkg_watts_mean,rapl_dram_watts_mean,gpu_watts_mean,rapl_pkg_available,rapl_dram_available,gpu_available,gpu_energy_method
+1,r1,idle,n0,2025-01-01T00:00:00Z,0.0,1.0,1.0,xeon-silver+rtx2080ti,0.05,800.0,0.5,stream_gb_per_s,0.0,0.0,0.0,0.0,0.0,0.0,25.0,4.0,2.0,25.0,4.0,2.0,True,True,True,nvml
+1,r1,cpu,n0,2025-01-01T00:00:01Z,1.0,1.5,0.5,xeon-silver+rtx2080ti,0.9,3000.0,12.0,stream_gb_per_s,0.1,0.05,100000.0,10000.0,1000.0,500.0,55.0,,3.0,110.0,,6.0,True,False,True,nvml
+1,r1,gpu,n0,2025-01-01T00:00:01.5Z,1.5,3.5,2.0,xeon-silver+rtx2080ti,0.2,1200.0,40.0,stream_gb_per_s,0.95,0.8,0.0,0.0,0.0,0.0,60.0,10.0,440.0,30.0,5.0,220.0,True,True,True,nvml

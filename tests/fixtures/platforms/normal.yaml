@@ -1,0 +1,14 @@
+# A minimal valid platform config used by unit tests (Component A schema).
+cpu:
+  model: "Intel Xeon Silver"
+  tdp_watts: 120.0
+  idle_watts_estimate: 25.0
+  sockets: 1
+gpu:
+  present: true
+  model: "NVIDIA RTX 2080 Ti"
+  tdp_watts: 250.0
+  idle_watts_estimate: 18.0
+rapl:
+  has_dram: true
+sampling_interval_seconds: 0.5

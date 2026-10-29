@@ -1,0 +1,15 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+This dataset (the contents of the dataset/ directory) is licensed under the
+Creative Commons Attribution 4.0 International License. You are free to share and
+adapt the material for any purpose, even commercially, provided you give
+appropriate credit, link to the license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:           https://creativecommons.org/licenses/by/4.0/
+
+Attribution — cite the accompanying paper ("Toward Hardware-Grounded Energy
+Estimation for KWOK", da Silva, Medina Jara, et al.) and this dataset.
+
+Note: this license applies to the DATA under dataset/ only. Source code in this
+repository is covered by the repository's MIT license (see ../LICENSE / pyproject).

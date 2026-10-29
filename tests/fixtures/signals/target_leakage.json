@@ -1,0 +1,14 @@
+{
+  "cpu_utilization": 0.5,
+  "cpu_frequency_mhz": 2400.0,
+  "mem_bandwidth_proxy": 10.0,
+  "mem_proxy_method": "stream_gb_per_s",
+  "gpu_utilization": 0.3,
+  "gpu_mem_utilization": 0.2,
+  "disk_read_bps": 0.0,
+  "disk_write_bps": 0.0,
+  "net_rx_bps": 0.0,
+  "net_tx_bps": 0.0,
+  "platform_id": "xeon-silver+rtx2080ti",
+  "rapl_pkg_joules": 50.0
+}

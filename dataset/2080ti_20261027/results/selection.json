@@ -1,0 +1,29 @@
+{
+  "2080ti": {
+    "base": {
+      "signal_set": "swept_no_gmem",
+      "features": [
+        "cpu_utilization",
+        "cpu_frequency_mhz",
+        "mem_bandwidth_proxy",
+        "gpu_utilization"
+      ],
+      "alpha": 100.0,
+      "tau_s": null,
+      "lowo_total": 6.715
+    },
+    "hist": {
+      "signal_set": "swept_no_gmem",
+      "features": [
+        "cpu_utilization",
+        "cpu_frequency_mhz",
+        "mem_bandwidth_proxy",
+        "gpu_utilization",
+        "gpu_util_ewma"
+      ],
+      "alpha": 100.0,
+      "tau_s": 40.0,
+      "lowo_total": 6.457
+    }
+  }
+}

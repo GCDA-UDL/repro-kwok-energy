@@ -1,0 +1,93 @@
+{
+  "components": {
+    "dram": {
+      "intercept": 13.82540285936392,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": 2.5240106738931507,
+        "cpu_utilization": -0.4698537552164295,
+        "gpu_util_ewma": 0.4959610759091481,
+        "gpu_utilization": 0.5708489028864833,
+        "mem_bandwidth_proxy": 6.394156121971445
+      }
+    },
+    "gpu": {
+      "intercept": 201.2827772042277,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": -10.987732449081719,
+        "cpu_utilization": 2.6418452962141323,
+        "gpu_util_ewma": 12.229013660510295,
+        "gpu_utilization": 223.97556620838262,
+        "mem_bandwidth_proxy": -3.883800014702197
+      }
+    },
+    "package": {
+      "intercept": 111.15998398110239,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": 61.190605600499765,
+        "cpu_utilization": 7.9289268138643605,
+        "gpu_util_ewma": 3.2995230166243825,
+        "gpu_utilization": 0.32085297442859506,
+        "mem_bandwidth_proxy": 1.9127885718625297
+      }
+    }
+  },
+  "covered_components": [
+    "dram",
+    "gpu",
+    "package"
+  ],
+  "platform_id": "2080ti",
+  "provenance": {
+    "calibration_trace_sha256": "3ef9a71dcfc7b269926f61ebc74be6c8c01de34636a89ad434c4e416b91793e8",
+    "calibration_traces": 60,
+    "created_at": "2026-10-29T22:54:40+00:00",
+    "fit_host": {
+      "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "gpu": "unavailable",
+      "kernel": "Windows 10",
+      "nvml_driver": "unavailable"
+    },
+    "git_sha": "91ca1de9262c250baa26a8fae33560e72eae0ee4",
+    "platform_config_sha256": "unknown",
+    "platform_host": {
+      "cpu_model": "Intel(R) Xeon(R) W-3245 CPU @ 3.20GHz",
+      "gpu_count": 4,
+      "gpus": "0, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n1, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n2, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n3, NVIDIA GeForce RTX 2080 Ti, 535.247.01, 250.00 W\n",
+      "hostname": "spoofing02-gcd.udl.cat",
+      "kernel": "5.4.0-216-generic",
+      "mem_proxy": "perf_imc_continuous",
+      "ncpu": 32
+    },
+    "ridge_alpha": 100.0,
+    "schema_version": "1",
+    "solver": "ridge",
+    "transform_kind": "standardize"
+  },
+  "transform": {
+    "features": [
+      "cpu_utilization",
+      "cpu_frequency_mhz",
+      "mem_bandwidth_proxy",
+      "gpu_utilization",
+      "gpu_util_ewma"
+    ],
+    "gpu_util_ewma_tau_s": 40.0,
+    "means": {
+      "cpu_frequency_mhz": 2263.5513917156345,
+      "cpu_utilization": 0.2655450277023043,
+      "gpu_util_ewma": 0.12653574542836135,
+      "gpu_utilization": 0.11936889423757611,
+      "mem_bandwidth_proxy": 9470.311380433253
+    },
+    "stds": {
+      "cpu_frequency_mhz": 953.0972547084127,
+      "cpu_utilization": 0.30910341318031853,
+      "gpu_util_ewma": 0.21898437674292326,
+      "gpu_utilization": 0.2748037779848527,
+      "mem_bandwidth_proxy": 24054.661115615978
+    }
+  }
+}

@@ -1,0 +1,54 @@
+# Author order: the byline of the paper.
+cff-version: 1.2.0
+message: "If you use this reproduction package, please cite it using these metadata."
+title: "Toward Hardware-Grounded Energy Estimation for KWOK: Calibrating Simulated Kubernetes Nodes Against RAPL and NVML (reproduction package)"
+abstract: >-
+  Reproduction package of the paper "Toward Hardware-Grounded Energy Estimation for KWOK":
+  the energy layer for KWOK (per-component model, exporter, trace replay), the measurement
+  harness, the live KWOK experiment, the dataset of both capture sessions (RAPL and NVML
+  traces of 20 workloads x 5 repetitions on two multi-GPU servers) and a Docker environment
+  that regenerates every number and table of the paper from the dataset.
+type: software
+authors:
+  - given-names: Vitor L.
+    family-names: da Silva
+    orcid: "https://orcid.org/0000-0002-3296-2752"
+    email: vitor.dasilva@udl.cat
+    affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
+  - given-names: Matias Nicolas
+    family-names: Medina Jara
+    orcid: "https://orcid.org/0009-0000-2858-4317"
+    affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
+  - given-names: Rosana
+    family-names: Tomàs
+    orcid: "https://orcid.org/0000-0002-1995-3974"
+    affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
+  - given-names: Joaquim
+    family-names: Oliva
+    orcid: "https://orcid.org/0009-0006-2645-6008"
+    affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
+  - given-names: Fernando
+    family-names: Cores
+    orcid: "https://orcid.org/0000-0003-2910-6709"
+    affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
+  - given-names: Josep Lluís
+    family-names: Lérida
+    orcid: "https://orcid.org/0000-0002-9352-9338"
+    affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
+contact:
+  - given-names: Vitor L.
+    family-names: da Silva
+    email: vitor.dasilva@udl.cat
+    orcid: "https://orcid.org/0000-0002-3296-2752"
+license: MIT
+repository-code: "https://github.com/GCDA-UDL/repro-kwok-energy"
+version: 0.1.0
+date-released: "2026-10-30"
+keywords:
+  - KWOK
+  - Kubernetes
+  - energy modelling
+  - RAPL
+  - NVML
+  - simulation
+  - reproduction package

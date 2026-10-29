@@ -1,0 +1,2 @@
+platform,coeffs_file,coeffs_sha256,tau_label_s,capture_tau_s,heldout_total_abs_err,selected_total_abs_err
+a4000,a4000_kwok_live.json,9bf80e86afa501942b3530891c981562f905963e78bf507dc1fba29942406383,5.0,20.0,4.696678371393659,5.266931394916768

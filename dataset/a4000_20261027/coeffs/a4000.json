@@ -1,0 +1,93 @@
+{
+  "components": {
+    "dram": {
+      "intercept": 8.944176271985,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": 0.4005967700979559,
+        "cpu_utilization": 0.907444282557954,
+        "gpu_util_ewma": 0.2078150239260556,
+        "gpu_utilization": -0.03734785529958734,
+        "mem_bandwidth_proxy": 3.752656556745862
+      }
+    },
+    "gpu": {
+      "intercept": 71.65818748039963,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": -1.6701064247977158,
+        "cpu_utilization": -4.123050856548665,
+        "gpu_util_ewma": 54.347955394702886,
+        "gpu_utilization": 15.687940091901037,
+        "mem_bandwidth_proxy": -1.9927621705781213
+      }
+    },
+    "package": {
+      "intercept": 90.8496449878388,
+      "solver": "ridge",
+      "weights": {
+        "cpu_frequency_mhz": 3.5641197675659444,
+        "cpu_utilization": 42.24731572024016,
+        "gpu_util_ewma": 0.3901977960498544,
+        "gpu_utilization": -1.1817482050586223,
+        "mem_bandwidth_proxy": 4.0869634605934655
+      }
+    }
+  },
+  "covered_components": [
+    "dram",
+    "gpu",
+    "package"
+  ],
+  "platform_id": "a4000",
+  "provenance": {
+    "calibration_trace_sha256": "a04e1d1c4dc247ae84a055c47508df9eabf0c8463a96b4ed9714dcd98e024804",
+    "calibration_traces": 60,
+    "created_at": "2026-10-29T22:54:39+00:00",
+    "fit_host": {
+      "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "gpu": "unavailable",
+      "kernel": "Windows 10",
+      "nvml_driver": "unavailable"
+    },
+    "git_sha": "91ca1de9262c250baa26a8fae33560e72eae0ee4",
+    "platform_config_sha256": "unknown",
+    "platform_host": {
+      "cpu_model": "Intel(R) Xeon(R) Silver 4210R CPU @ 2.40GHz",
+      "gpu_count": 2,
+      "gpus": "0, NVIDIA RTX A4000, 580.178.04, 140.00 W\n1, NVIDIA RTX A4000, 580.178.04, 140.00 W\n",
+      "hostname": "spoofing.udl.cat",
+      "kernel": "5.14.0-687.41.1.el9_8.x86_64",
+      "mem_proxy": "perf_imc",
+      "ncpu": 40
+    },
+    "ridge_alpha": 0.01,
+    "schema_version": "1",
+    "solver": "ridge",
+    "transform_kind": "standardize"
+  },
+  "transform": {
+    "features": [
+      "cpu_utilization",
+      "cpu_frequency_mhz",
+      "mem_bandwidth_proxy",
+      "gpu_utilization",
+      "gpu_util_ewma"
+    ],
+    "gpu_util_ewma_tau_s": 5.0,
+    "means": {
+      "cpu_frequency_mhz": 3000.9775252013483,
+      "cpu_utilization": 0.25310210193514304,
+      "gpu_util_ewma": 0.15875930905760613,
+      "gpu_utilization": 0.15760750755069758,
+      "mem_bandwidth_proxy": 9667.06989932403
+    },
+    "stds": {
+      "cpu_frequency_mhz": 108.16378797612789,
+      "cpu_utilization": 0.3106368446757278,
+      "gpu_util_ewma": 0.289502757825427,
+      "gpu_utilization": 0.29888464842333645,
+      "mem_bandwidth_proxy": 25616.171934903054
+    }
+  }
+}

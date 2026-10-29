@@ -1,0 +1,29 @@
+{
+  "a4000": {
+    "base": {
+      "signal_set": "swept_no_gmem",
+      "features": [
+        "cpu_utilization",
+        "cpu_frequency_mhz",
+        "mem_bandwidth_proxy",
+        "gpu_utilization"
+      ],
+      "alpha": 0.01,
+      "tau_s": null,
+      "lowo_total": 11.545
+    },
+    "hist": {
+      "signal_set": "swept_no_gmem",
+      "features": [
+        "cpu_utilization",
+        "cpu_frequency_mhz",
+        "mem_bandwidth_proxy",
+        "gpu_utilization",
+        "gpu_util_ewma"
+      ],
+      "alpha": 0.01,
+      "tau_s": 5.0,
+      "lowo_total": 10.863
+    }
+  }
+}

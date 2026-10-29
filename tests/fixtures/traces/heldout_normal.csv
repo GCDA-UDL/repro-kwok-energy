@@ -1,0 +1,5 @@
+schema_version,run_id,workload,node,timestamp,t_start_s,t_end_s,dt_s,platform_id,cpu_utilization,cpu_frequency_mhz,mem_bandwidth_proxy,mem_proxy_method,gpu_utilization,gpu_mem_utilization,disk_read_bps,disk_write_bps,net_rx_bps,net_tx_bps,rapl_pkg_joules,rapl_dram_joules,gpu_energy_joules,rapl_pkg_watts_mean,rapl_dram_watts_mean,gpu_watts_mean,rapl_pkg_available,rapl_dram_available,gpu_available,gpu_energy_method
+1,held1,near_idle,n0,2025-01-01T00:00:00Z,0.0,1.0,1.0,xeon-silver+rtx2080ti,0.15,2400.0,2.0,stream_gb_per_s,0.05,0.2,0.0,0.0,0.0,0.0,40.0,3.4,28.0,40.0,3.4,28.0,True,True,True,nvml
+1,held1,cpu,n0,2025-01-01T00:00:00Z,1.0,2.0,1.0,xeon-silver+rtx2080ti,0.6,2400.0,6.0,stream_gb_per_s,0.2,0.2,0.0,0.0,0.0,0.0,85.0,4.2,58.0,85.0,4.2,58.0,True,True,True,nvml
+1,held1,gpu,n0,2025-01-01T00:00:00Z,2.0,3.0,1.0,xeon-silver+rtx2080ti,0.25,2400.0,20.0,stream_gb_per_s,0.8,0.2,0.0,0.0,0.0,0.0,50.0,7.0,178.0,50.0,7.0,178.0,True,True,True,nvml
+1,held1,mixed,n0,2025-01-01T00:00:00Z,3.0,4.0,1.0,xeon-silver+rtx2080ti,0.55,2400.0,18.0,stream_gb_per_s,0.6,0.2,0.0,0.0,0.0,0.0,80.0,6.6,138.0,80.0,6.6,138.0,True,True,True,nvml

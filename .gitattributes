@@ -1,0 +1,4 @@
+# Dataset bundles and expected outputs are kept byte for byte (sha256 manifests).
+dataset/** -text
+expected/** -text
+*.sh text eol=lf

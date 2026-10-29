@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kwok-energy"
+version = "0.1.0"
+description = "Hardware-grounded energy estimation for KWOK: calibrating simulated Kubernetes nodes against RAPL and NVML."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "kwok-energy-hg contributors" }]
+keywords = ["kubernetes", "kwok", "energy", "rapl", "nvml", "simulation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Distributed Computing",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "pydantic>=2.9",
+    "pyyaml>=6.0",
+    "prometheus_client>=0.20",
+    "numpy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "matplotlib>=3.7",   # tools/e2e/make_plots.py — publication figures from result CSVs
+]
+
+# Console-script entry points (CLI tools). Stubbed here; fleshed out per change.
+[project.scripts]
+fit-model = "kwok_energy.cli.fit_model:main"
+validate = "kwok_energy.cli.validate:main"
+run-exporter = "kwok_energy.cli.run_exporter:main"
+gen-cluster = "kwok_energy.cli.gen_cluster:main"
+scale-demo = "kwok_energy.cli.scale_demo:main"
+export-paper-tables = "kwok_energy.cli.export_paper_tables:main"
+export-paper-figures = "kwok_energy.cli.export_paper_figures:main"
+probe = "kwok_energy.cli.probe:main"
+acquisition-smoke = "kwok_energy.cli.acquisition_smoke:main"
+verify-dataset = "kwok_energy.cli.verify_dataset:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kwok_energy"]
+
+# --- pytest -----------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "unit: fast, isolated, hardware-free unit tests (run in CI).",
+    "integration: multi-component tests that do not need real hardware (docker-free subset run in CI).",
+    "hardware: tests requiring RAPL/NVML devices or root permissions (skipped without devices).",
+    "kwok: tests exercising the KWOK injection layer (skipped without a cluster).",
+    "prometheus: tests exercising the Prometheus /metrics exporter (skipped without a scraper).",
+    "slow: long-running tests (>10s), excluded from fast CI lanes.",
+]
+filterwarnings = [
+    "error::pytest.PytestUnknownMarkWarning",
+]
+
+# --- ruff -------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+# Keep the lint gate light for a research codebase; long lines are common in
+# scientific formatting.
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["B011"]
