@@ -9,7 +9,7 @@ Code, dataset and analysis environment for the paper
 > **Toward Hardware-Grounded Energy Estimation for KWOK: Calibrating Simulated Kubernetes
 > Nodes Against RAPL and NVML** (manuscript).
 
-**Authors:** Vitor L. da Silva, Matias N. Medina Jara, Rosana Tomàs, Joaquim Oliva,
+**Authors:** Vitor L. da Silva, Matias Medina, Rosana Tomàs, Joaquim Oliva,
 Fernando Cores and Josep Lluís Lérida — SEMBAC, Universitat de Lleida, Spain.
 
 KWOK simulates thousands of Kubernetes nodes without running any workload. This package

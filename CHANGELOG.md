@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.1] — 2026-10-30
+
+- Author metadata: Matias Medina's name in its canonical form (`Medina, Matias`) in
+  `CITATION.cff`, `.zenodo.json`, the README and the LICENSE. No change to code, data or results.
+
 ## [0.1.0] — 2026-10-30
 
 First version of the reproduction package, built from the development repository at the

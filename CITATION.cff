@@ -15,8 +15,8 @@ authors:
     orcid: "https://orcid.org/0000-0002-3296-2752"
     email: vitor.dasilva@udl.cat
     affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
-  - given-names: Matias Nicolas
-    family-names: Medina Jara
+  - given-names: Matias
+    family-names: Medina
     orcid: "https://orcid.org/0009-0000-2858-4317"
     affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
   - given-names: Rosana
@@ -42,7 +42,7 @@ contact:
     orcid: "https://orcid.org/0000-0002-3296-2752"
 license: MIT
 repository-code: "https://github.com/GCDA-UDL/repro-kwok-energy"
-version: 0.1.0
+version: 0.1.1
 date-released: "2026-10-30"
 keywords:
   - KWOK
