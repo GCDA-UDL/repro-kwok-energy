@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.2] — 2026-10-30
+
+- `LICENSE-data` and `dataset/LICENSE`: Matias Medina's canonical name in the citation line
+  (missed in 0.1.1). No change to code, data or results.
+
 ## [0.1.1] — 2026-10-30
 
 - Author metadata: Matias Medina's name in its canonical form (`Medina, Matias`) in

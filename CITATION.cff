@@ -42,7 +42,7 @@ contact:
     orcid: "https://orcid.org/0000-0002-3296-2752"
 license: MIT
 repository-code: "https://github.com/GCDA-UDL/repro-kwok-energy"
-version: 0.1.1
+version: 0.1.2
 date-released: "2026-10-30"
 keywords:
   - KWOK

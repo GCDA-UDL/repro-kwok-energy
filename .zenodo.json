@@ -1,7 +1,7 @@
 {
   "title": "Toward Hardware-Grounded Energy Estimation for KWOK: Calibrating Simulated Kubernetes Nodes Against RAPL and NVML (reproduction package)",
   "upload_type": "software",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "creators": [
     {"name": "da Silva, Vitor L.", "orcid": "0000-0002-3296-2752", "affiliation": "SEMBAC, Universitat de Lleida"},

@@ -9,7 +9,7 @@ Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
 Summary:           https://creativecommons.org/licenses/by/4.0/
 
 Attribution — cite the accompanying paper ("Toward Hardware-Grounded Energy
-Estimation for KWOK", da Silva, Medina Jara, et al.) and this dataset.
+Estimation for KWOK", da Silva, Medina, et al.) and this dataset.
 
 Note: this license applies to the DATA under dataset/ only. Source code in this
 repository is covered by the repository's MIT license (see ../LICENSE / pyproject).
