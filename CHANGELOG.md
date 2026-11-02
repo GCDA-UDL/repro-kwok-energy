@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.0] — 2026-11-02
+
+Version submitted with the manuscript; first version archived on Zenodo.
+
+- Author metadata: Josep L. Lérida's name in the form he signs with (`Lérida, Josep L.`)
+  in `CITATION.cff`, `.zenodo.json`, the README and the LICENSE.
+- No change to code, data or results: `expected/generated` matches the tables and
+  values of the submitted manuscript.
+
 ## [0.1.2] — 2026-10-30
 
 - `LICENSE-data` and `dataset/LICENSE`: Matias Medina's canonical name in the citation line

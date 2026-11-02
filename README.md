@@ -10,7 +10,7 @@ Code, dataset and analysis environment for the paper
 > Nodes Against RAPL and NVML** (manuscript).
 
 **Authors:** Vitor L. da Silva, Matias Medina, Rosana Tomàs, Joaquim Oliva,
-Fernando Cores and Josep Lluís Lérida — SEMBAC, Universitat de Lleida, Spain.
+Fernando Cores and Josep L. Lérida — SEMBAC, Universitat de Lleida, Spain.
 
 KWOK simulates thousands of Kubernetes nodes without running any workload. This package
 adds an energy layer to it: a per-component model (CPU package, DRAM, GPU) that predicts a

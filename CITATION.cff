@@ -31,7 +31,7 @@ authors:
     family-names: Cores
     orcid: "https://orcid.org/0000-0003-2910-6709"
     affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
-  - given-names: Josep Lluís
+  - given-names: Josep L.
     family-names: Lérida
     orcid: "https://orcid.org/0000-0002-9352-9338"
     affiliation: "SEMBAC, Universitat de Lleida, Edifici CREA, C/Pere de Cabrera s/n. 25001 Lleida (Spain)"
@@ -42,8 +42,8 @@ contact:
     orcid: "https://orcid.org/0000-0002-3296-2752"
 license: MIT
 repository-code: "https://github.com/GCDA-UDL/repro-kwok-energy"
-version: 0.1.2
-date-released: "2026-10-30"
+version: 1.0.0
+date-released: "2026-11-02"
 keywords:
   - KWOK
   - Kubernetes
